@@ -1,4 +1,5 @@
-import history from './history.js'
+// import history from './history.js'
+import history from 'history/browser'
 
 let diagram
 

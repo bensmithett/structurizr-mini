@@ -1,39 +1,26 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
   <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>STATIC STRUCTURIZR</title>
 
-    <!-- Copied from structurizr/ui examples -->
-    <script src="git_submodules/structurizr/ui/src/js/jquery-3.6.3.min.js"></script>
-    <script src="git_submodules/structurizr/ui/src/js/lodash-4.17.21.js"></script>
-    <script src="git_submodules/structurizr/ui/src/js/backbone-1.4.1.js"></script>
-    <script src="git_submodules/structurizr/ui/src/js/joint-3.6.5.js"></script>
-    <script src="git_submodules/structurizr/ui/src/js/canvg-1.5.4.js"></script>
-    <script src="git_submodules/structurizr/ui/src/js/structurizr.js"></script>
-    <script src="git_submodules/structurizr/ui/src/js/structurizr-util.js"></script>
-    <script src="git_submodules/structurizr/ui/src/js/structurizr-ui.js"></script>
-    <script src="git_submodules/structurizr/ui/src/js/structurizr-workspace.js"></script>
-    <script src="git_submodules/structurizr/ui/src/js/structurizr-diagram.js"></script>
-
-    <link href="git_submodules/structurizr/ui/src/css/joint-3.6.5.css" rel="stylesheet" media="screen" />
-    <link href="git_submodules/structurizr/ui/src/css/structurizr-diagram.css" rel="stylesheet" media="screen" />
-    <!-- end -->
-
+    <link href="git_submodules/structurizr/ui/src/css/joint-3.6.5.css" rel="stylesheet" />
+    <link href="git_submodules/structurizr/ui/src/css/structurizr-diagram.css" rel="stylesheet" />
+    <link rel='stylesheet' href='node_modules/autocompleter/autocomplete.min.css' />
     <link rel='stylesheet' href='styles.css' />
-    <link rel='stylesheet' href='styles_a11ydialog.css' />
-
-    <!-- TODO: Package correctly -->
-    <script src="https://unpkg.com/a11y-dialog@7.5.2/dist/a11y-dialog.min.js"></script>
-    <script src="https://unpkg.com/fuzzysort@2.0.4/fuzzysort.min.js"></script>
-    <script src="https://unpkg.com/autocompleter@8.0.3/autocomplete.min.js"></script>
-    <link rel='stylesheet' href='https://unpkg.com/autocompleter@8.0.3/autocomplete.min.css' />
   </head>
   <body>
     <div class='layout'>
       <div class='layout__nav'>
-        <button id='zoomIn'>+</button>
-        <button id='zoomOut'>-</button>
-        <button id='export'>Export</button>
+        <label for='searchbox'>Go to diagram:</label>
+        <input id="searchbox" class='input' />
+        <button id='export' class='btn'>Export PNG</button>
+
+        <div class='zoom'>
+          <button id='zoomIn'>+</button>
+          <button id='zoomOut'>-</button>
+        </div>
       </div>
       <div class='layout__diagram' id="diagram"></div>
     </div>
@@ -62,6 +49,18 @@
       </div>
     </div>
 
-    <script type='module' src='js/index.js'></script>
+    <!-- <script src='/structurizr_ui_scripts.js'></script> -->
+    <script src='git_submodules/structurizr/ui/src/js/jquery-3.6.3.min.js'></script>
+    <script src='git_submodules/structurizr/ui/src/js/lodash-4.17.21.js'></script>
+    <script src='git_submodules/structurizr/ui/src/js/backbone-1.4.1.js'></script>
+    <script src='git_submodules/structurizr/ui/src/js/joint-3.6.5.js'></script>
+    <script src='git_submodules/structurizr/ui/src/js/canvg-1.5.4.js'></script>
+    <script src='git_submodules/structurizr/ui/src/js/structurizr.js'></script>
+    <script src='git_submodules/structurizr/ui/src/js/structurizr-util.js'></script>
+    <script src='git_submodules/structurizr/ui/src/js/structurizr-ui.js'></script>
+    <script src='git_submodules/structurizr/ui/src/js/structurizr-workspace.js'></script>
+    <script src='git_submodules/structurizr/ui/src/js/structurizr-diagram.js'></script>
+
+    <script type='module' src='modules/index.js'></script>
   </body>
 </html>
