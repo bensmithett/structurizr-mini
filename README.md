@@ -1,12 +1,17 @@
 # Structurizr Mini
 
-C4 diagrams from your [Structurizr](https://structurizr.com) workspace on a static site.
+C4 diagrams from a [Structurizr](https://structurizr.com) workspace on a static site.
 
-- 🟦 Renders using [structurizr/ui](https://github.com/structurizr/ui) so diagrams look exactly the same as they do in Structurizr
-- 🔎 [Zoom and pan](https://github.com/anvaka/panzoom) diagrams with mousewheel or trackpad (like Google Maps)
-- 🔦 Simple navigation and the [world's best fuzzy search](https://github.com/farzher/fuzzysort) for finding diagrams
-- 🖼️ PNG export
-- 🔗 Customisable header links
+## Features
+
+- Diagrams rendered with the [same code](https://github.com/structurizr/ui) as the official Structurizr [tools](https://structurizr.com/products) so...
+  - [Themes](https://structurizr.com/help/themes) just work
+  - Diagrams look the same everywhere. Keep using Structurizr tools as part of your workflow (I still use [Lite](https://structurizr.com/help/lite) for local diagram editing)
+- Zoom and pan with mousewheel or trackpad (like Google Maps, Lucid, Miro, etc)
+- Simplified navigation and the [world's best fuzzy search](https://github.com/farzher/fuzzysort) for finding diagrams
+- PNG export
+- Customisable header — link to your own supplemental docs, diagram source DSL code, etc
+- Self-contained static site that can be deployed anywhere. No references to external assets.
 
 ## Usage
 
