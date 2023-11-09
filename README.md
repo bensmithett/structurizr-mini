@@ -1,6 +1,12 @@
-# structurizr-mini
+# Structurizr Mini
 
-Use the official structurizr/ui workspace renderer on a static website
+C4 diagrams from your [Structurizr](https://structurizr.com) workspace on a static site.
+
+- 🟦 Renders using [structurizr/ui](https://github.com/structurizr/ui) so diagrams look exactly the same as they do in Structurizr
+- 🔎 [Zoom and pan](https://github.com/anvaka/panzoom) diagrams with mousewheel or trackpad (like Google Maps)
+- 🔦 Simple navigation and the [world's best fuzzy search](https://github.com/farzher/fuzzysort) for finding diagrams
+- 🖼️ PNG export
+- 🔗 Customisable header links
 
 ## Usage
 

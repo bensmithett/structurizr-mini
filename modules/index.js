@@ -1,4 +1,5 @@
-import { setupNavigation } from './navigate.js'
+// import { setupNavigation } from './navigate.js'
+import { Navigation } from './navigation.js'
 import { observeResizes } from './resize.js'
 import { setupZoom } from './zoom.js'
 import { setupModal } from './modal.js'
@@ -10,23 +11,32 @@ async function setup () {
 
   structurizr.workspace = new structurizr.Workspace(data)
 
-  const diagram  = new structurizr.ui.Diagram('diagram', false, () => {
-    diagram.changeView(structurizr.workspace.getViews()[0].key)
+  structurizr.ui.loadThemes(() => {
+    const diagram = new structurizr.ui.Diagram('diagram', false, () => {
+      diagram.setNavigationEnabled(true)
 
-    setupNavigation(diagram)
-    setupZoom(diagram)
-    observeResizes(diagram)
-  })
+      const nav = new Navigation(diagram)
+      nav.setDiagram((structurizr.workspace.getViews()[0].key))
+      nav.syncDiagramWithURL()
 
-  diagram.setNavigationEnabled(true)
-
-  document.querySelector('#export').addEventListener('click', () => {
-    diagram.exportCurrentDiagramToPNG(true, false, (dataURI) => {
-      joint.util.downloadDataUri(dataURI, `${diagram.getCurrentView().key}.png`)
+      // diagram.changeView(structurizr.workspace.getViews()[0].key)
+      
+      // setupNavigation(diagram)
+      // setupZoom(diagram)
+      
+      observeResizes(diagram, nav)
     })
-  })
 
-  setupModal()
+    window.d = diagram
+
+    document.querySelector('#export').addEventListener('click', () => {
+      diagram.exportCurrentDiagramToPNG(false, false, (dataURI) => {
+        joint.util.downloadDataUri(dataURI, `${diagram.getCurrentView().key}.png`)
+      })
+    })
+
+    setupModal()
+  })
 }
 
 setup()

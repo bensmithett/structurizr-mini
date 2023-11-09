@@ -1,7 +1,7 @@
 // import history from './history.js'
 import history from 'history/browser'
 
-let diagram
+let diagram, zoom
 
 export function setupNavigation(d) {
   diagram = d
@@ -63,8 +63,34 @@ function handleLocationChange ({ location }) {
   const search = new URLSearchParams(location.search)
   const key = getKeyFromURL(location)
   if (key && key !== diagram.getCurrentView().key) {
-    diagram.changeView(key)
+    setDiagram(key)
   }
+}
+
+export function setDiagram(key) {
+  if (zoom) zoom.dispose()
+
+  console.log(key, '********')
+  diagram.changeView(key)
+  zoom = panzoom(document.querySelector('#v-2'), {
+    minZoom: 1,
+    smoothScroll: false,
+    bounds: true,
+    boundsPadding: 0.5,
+    /*
+    beforeWheel: function(e) {
+      // allow wheel-zoom only if altKey is down. Otherwise - ignore
+      var shouldIgnore = !e.altKey;
+      return shouldIgnore;
+    },*/
+    /*
+    beforeMouseDown: function(e) {
+      // allow mouse-down panning only if altKey is down. Otherwise - ignore
+      var shouldIgnore = !e.altKey;
+      return shouldIgnore;
+    }*/
+    
+  })
 }
 
 function getKeyFromURL(location) {

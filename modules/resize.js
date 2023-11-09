@@ -1,7 +1,8 @@
-export function observeResizes (diagram) {
+export function observeResizes (diagram, nav) {
   const observer = new ResizeObserver(() => {
-    diagram.resize()
-    diagram.zoomToWidthOrHeight()
+    // diagram.resize()
+    // nav.resetZoom()
+    // diagram.zoomToWidthOrHeight()
   })
   observer.observe(document.body)
 }

@@ -26,6 +26,12 @@ body {
   width: 100vw;
 }
 
+.structurizrDiagramViewport {
+  background: #fff;
+  height: 100% !important;
+  width: 100% !important;
+}
+
 label {
   color: #bbb;
   font-size: 1.1rem;
