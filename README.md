@@ -8,7 +8,7 @@ C4 diagrams from a [Structurizr](https://structurizr.com) workspace on a static 
   - [Themes](https://structurizr.com/help/themes) just work
   - Diagrams look the same everywhere, so you can mix & match Structurizr tools (I still use [Lite](https://structurizr.com/help/lite) for local diagram editing)
 - Zoom and pan with mousewheel or trackpad (like Google Maps, Lucid, Miro, etc)
-- [Quick navigation](https://docs.structurizr.com/ui/quick-navigation) with the [world's best fuzzy search](https://github.com/farzher/fuzzysort)
+- Simplified UI with [quick navigation](https://docs.structurizr.com/ui/quick-navigation) and [fuzzy search](https://github.com/farzher/fuzzysort)
 - PNG export
 - Customisable header — link to your own supplemental docs, source code, etc
 
