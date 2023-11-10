@@ -10,7 +10,7 @@ C4 diagrams from a [Structurizr](https://structurizr.com) workspace on a static 
 - Zoom and pan with mousewheel or trackpad (like Google Maps, Lucid, Miro, etc)
 - Simplified navigation and the [world's best fuzzy search](https://github.com/farzher/fuzzysort) for finding diagrams
 - PNG export
-- Customisable header — link to your own supplemental docs, diagram source DSL code, etc
+- Customisable header — link to your own supplemental docs, source code, etc
 - Self-contained static site that can be deployed anywhere. No references to external assets.
 
 ## Usage
