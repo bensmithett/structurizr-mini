@@ -8,12 +8,18 @@ C4 diagrams from a [Structurizr](https://structurizr.com) workspace on a static 
   - [Themes](https://structurizr.com/help/themes) just work
   - Diagrams look the same everywhere. Keep using Structurizr tools as part of your workflow (I still use [Lite](https://structurizr.com/help/lite) for local diagram editing)
 - Zoom and pan with mousewheel or trackpad (like Google Maps, Lucid, Miro, etc)
-- Simplified navigation and the [world's best fuzzy search](https://github.com/farzher/fuzzysort) for finding diagrams
+- [Quick navigation](https://docs.structurizr.com/ui/quick-navigation) with the [world's best fuzzy search](https://github.com/farzher/fuzzysort)
 - PNG export
 - Customisable header — link to your own supplemental docs, source code, etc
-- Self-contained static site that can be deployed anywhere. No references to external assets.
+- Fully self-contained static site — no embeds or references to external assets
 
-## Usage
+## Quick instructions
+
+- Download and unzip the latest [release](https://github.com/bensmithett/structurizr-mini/releases) somewhere that can serve static files over HTTP
+- Put your `workspace.json` in the same place
+- Go to `http://[YOUR SERVER]/index.html`
+
+### How to get a `workspace.json`?
 
 TODO
 
