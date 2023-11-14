@@ -26,21 +26,21 @@ How you get a `workspace.json` depends on your Structurizr workflow and where th
 
 ### Workflow 1: Structurizr Cloud/On-Premises
 
-In this workflow, the source of truth for your workspace is in the Cloud/On-Premises instance. Use [Structurizr CLI's `pull`](https://docs.structurizr.com/cli/pull) to [export it](https://structurizr.com/help/workspace-export-and-import).
+The source of truth for your workspace is in the Cloud/On-Premises instance. Use [Structurizr CLI's `pull`](https://docs.structurizr.com/cli/pull) to [export it](https://structurizr.com/help/workspace-export-and-import).
 
 ### Workflow 2: `workspace.dsl` as source of truth
 
-In this workflow, a `workspace.dsl` committed to version control is the source of truth.
+The source of truth for your workspace is a `workspace.dsl` committed to version control.
 
-You're probably not using Structurizr Cloud or On-Premises (or if you are, it's just to be able to share diagrams at a URL — you can use Mini for that now!)
+You're probably not using Structurizr Cloud or On-Premises (or if you are, it's just so you can host diagrams — you can use Mini for that now!)
 
-Naively you could use the CLI to export that file to JSON...
+The CLI can export that file to JSON...
 
 ```
 structurizr-cli export -workspace workspace.dsl -format json
 ```
 
-... ⚠️ however `workspace.dsl` **does not include any diagram layout info** and the CLI alone will not create it.
+⚠️ however `workspace.dsl` **does not include any diagram layout info** and the CLI alone will not create it.
 
 #### Where does your layout info live?
 
