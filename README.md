@@ -1,8 +1,6 @@
 <img src='./docs/banner.jpg' width='512' alt='Structurizr Mini' />
 
-C4 diagrams from a [Structurizr](https://structurizr.com) workspace on a static site.
-
-Just the diagrams. [Docs](https://docs.structurizr.com/dsl/docs) or [ADRs](https://docs.structurizr.com/dsl/adrs) in the workspace are ignored.
+C4 diagrams from a [Structurizr](https://structurizr.com) workspace on a static site. Just the diagrams — [docs](https://docs.structurizr.com/dsl/docs) and [ADRs](https://docs.structurizr.com/dsl/adrs) in the workspace are ignored.
 
 ## Features
 
@@ -20,19 +18,17 @@ Just the diagrams. [Docs](https://docs.structurizr.com/dsl/docs) or [ADRs](https
 - Put your `workspace.json` in the same place
 - Go to `http://[YOUR SERVER]/index.html`
 
-How you get a `workspace.json` depends on your Structurizr workflow and where the source of truth lives:
+How you get a `workspace.json` depends on your workflow and where your source of truth lives.
 
-## Workflows
+## Workflow 1: Structurizr Cloud/On-Premises
 
-### Workflow 1: Structurizr Cloud/On-Premises
+The source of truth for your workspace is in the Cloud/On-Premises instance. Use [Structurizr CLI's `pull`](https://docs.structurizr.com/cli/pull) to [export](https://structurizr.com/help/workspace-export-and-import) `workspace.json`.
 
-The source of truth for your workspace is in the Cloud/On-Premises instance. Use [Structurizr CLI's `pull`](https://docs.structurizr.com/cli/pull) to [export it](https://structurizr.com/help/workspace-export-and-import).
+## Workflow 2: `workspace.dsl` as source of truth
 
-### Workflow 2: `workspace.dsl` as source of truth
+A `workspace.dsl` committed to version control is your source of truth.
 
-The source of truth for your workspace is a `workspace.dsl` committed to version control.
-
-You're probably not using Structurizr Cloud or On-Premises (or if you are, it's just so you can host diagrams — you can use Mini for that now!)
+You're not using Structurizr Cloud or On-Premises (or if you are, it's just as a publish target for your diagrams).
 
 The CLI can export that file to JSON...
 
@@ -42,9 +38,9 @@ structurizr-cli export -workspace workspace.dsl -format json
 
 ⚠️ however `workspace.dsl` **does not include any diagram layout info** and the CLI alone will not create it.
 
-#### Where does your layout info live?
+### Where does your layout info live?
 
-##### `autoLayout`
+#### `autoLayout`
 
 Structurizr's Lite/Cloud/On-Prem diagram viewer applies [Graphviz](https://graphviz.org) on the server when you view a diagram. Mini can't do that — it's just static files — so you need to pre-generate layout info at build time. There's an [easy way to do this:](https://github.com/structurizr/cli/issues/62#issuecomment-999623728)
 
@@ -64,7 +60,7 @@ workspace extends workspace.json {
 structurizr-cli export -workspace graphviz.dsl -format json
 ```
 
-##### Manual layout
+#### Manual layout
 
 If you don't rely exclusively on `autoLayout` and use Lite to manually edit diagrams, those manual edits are [auto-saved](https://docs.structurizr.com/lite/usage#auto-save) to a `workspace.json` that Lite is already generating for you.
 
