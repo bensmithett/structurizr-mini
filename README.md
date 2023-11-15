@@ -1,4 +1,4 @@
-# Structurizr Mini
+<img src='./docs/banner.jpg' width='512' alt='Structurizr Mini' />
 
 C4 diagrams from a [Structurizr](https://structurizr.com) workspace on a static site.
 
