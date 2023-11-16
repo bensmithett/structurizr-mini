@@ -45,12 +45,10 @@ To get the actual layout information for your `autoLayout` views, Structurizr Li
 
 ```mermaid
 sequenceDiagram
-  participant b as Browser
-  participant s as Server
-  b->>s: Get layout information
-  s->>s: Apply Graphviz
-  s->>b: Return layout information
-  b->>b: Render diagram
+  Browser->>Server: Get layout information
+  Server->>Server: Apply Graphviz
+  Server->>Browser: Return layout information
+  Browser->>Browser: Render diagram
 ```
 
 As a static site without a server runtime, Mini can't do that. Luckily there's an [easy way](https://github.com/structurizr/cli/issues/62#issuecomment-999623728) to generate automatic layout information at build time:
