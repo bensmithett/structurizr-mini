@@ -1,4 +1,4 @@
-<img src='./docs/banner.jpg' width='512' alt='Structurizr Mini' />
+<img src='./docs/banner.webp' width='512' alt='Structurizr Mini' />
 
 A static site for C4 diagrams from a [Structurizr](https://structurizr.com) workspace. Just the diagrams — [docs](https://docs.structurizr.com/dsl/docs) and [ADRs](https://docs.structurizr.com/dsl/adrs) in the workspace are ignored.
 
