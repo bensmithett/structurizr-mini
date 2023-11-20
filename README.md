@@ -18,11 +18,11 @@ A static site for C4 diagrams from a [Structurizr](https://structurizr.com) work
 
 How you get a `workspace.json` depends on your workflow.
 
-## Workflow 1: [Structurizr Cloud/On-Premises workflow](https://structurizr.com/help/workflow)
+## [Structurizr Cloud/On-Premises workflow](https://structurizr.com/help/workflow)
 
 Use Structurizr CLI's [`pull`](https://docs.structurizr.com/cli/pull) to [export](https://structurizr.com/help/workspace-export-and-import) a `workspace.json` that includes diagram layout information.
 
-## Workflow 2: Structurizr Mini workflow
+## Structurizr Mini workflow
 
 - Author a `workspace.dsl` locally, using [Lite](https://structurizr.com/help/lite) or the [web DSL Editor](https://structurizr.com/dsl) to preview the resulting diagrams.
 - Publish diagrams with Structurizr Mini (e.g. as part of a CI build)
