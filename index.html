@@ -17,12 +17,20 @@
         <input id="searchbox" class='input' />
         <button id='export' class='btn'>Export PNG</button>
 
+        <!--
         <div class='zoom'>
           <button id='zoomIn'>+</button>
           <button id='zoomOut'>-</button>
         </div>
+        -->
       </div>
-      <div class='layout__diagram' id="diagram"></div>
+      <div class='layout__diagram-root' id='zoom-root'>
+        <div class='layout__diagram-point'>
+          <div class='layout__diagram-canvas'>
+            <div class="layout__structurizr-target" id="structurizr-diagram-target"></div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- 1. The dialog container -->

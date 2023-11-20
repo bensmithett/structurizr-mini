@@ -12,7 +12,7 @@ async function setup () {
   structurizr.workspace = new structurizr.Workspace(data)
 
   structurizr.ui.loadThemes(() => {
-    const diagram = new structurizr.ui.Diagram('diagram', false, () => {
+    const diagram = new structurizr.ui.Diagram('structurizr-diagram-target', false, () => {
       diagram.setNavigationEnabled(true)
 
       const nav = new Navigation(diagram)

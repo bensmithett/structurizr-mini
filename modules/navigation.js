@@ -1,5 +1,6 @@
 // import history from './history.js'
 import history from 'history/browser'
+import { create as createZoom } from 'pinch-zoom-pan'
 
 export class Navigation {
   #diagram
@@ -70,9 +71,21 @@ export class Navigation {
   }
 
   setDiagram(key) {
-    if (this.#zoom) this.#zoom.dispose()
+    // if (this.#zoom) this.#zoom.dispose()
+    if (this.#zoom) this.#zoom.destroy()
 
-    this.#diagram.changeView(key)
+    this.#diagram.changeView(key, () => {
+      this.#diagram.autoPageSize()
+      this.#zoom = createZoom({
+        element: document.querySelector('#zoom-root'),
+        // optional settings:
+        minZoom: 0.5,
+        maxZoom: 10,
+        captureWheel: true,
+      })
+    })
+
+    /*
     this.#zoom = panzoom(document.querySelector('#v-2'), {
       minZoom: 0.3,
       smoothScroll: false,
@@ -80,20 +93,8 @@ export class Navigation {
       boundsPadding: 0.5,
       // We're using double clicks to navigate, not zoom
       zoomDoubleClickSpeed: 1,
-      /*
-      beforeWheel: function(e) {
-        // allow wheel-zoom only if altKey is down. Otherwise - ignore
-        var shouldIgnore = !e.altKey;
-        return shouldIgnore;
-      },*/
-      /*
-      beforeMouseDown: function(e) {
-        // allow mouse-down panning only if altKey is down. Otherwise - ignore
-        var shouldIgnore = !e.altKey;
-        return shouldIgnore;
-      }*/
-      
     })
+    */
   }
 
   // resetZoom () {

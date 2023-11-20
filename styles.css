@@ -7,8 +7,16 @@
   box-sizing: inherit;
 }
 
-body {
+html, body {
+  height: 100%;
   margin: 0;
+}
+
+.layout {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
 }
 
 .layout__nav {
@@ -17,19 +25,44 @@ body {
   align-items: center;
   justify-content: center;
   gap: 5px;
-  height: 50px;
+  /* height: 50px; */
   padding: 5px;
+  position: relative;
+  z-index: 2;
 }
 
-.layout__diagram {
-  height: calc(100vh - 50px);
-  width: 100vw;
+.layout__diagram-root {
+  flex: 1 1;
+  overflow: hidden;
+  position: relative;
+/*  transform: translateZ(0);*/
+  z-index: 1;
+  /*height: calc(100vh - 50px);
+  width: 100vw;*/
+}
+
+.layout__diagram-point {
+  position: absolute;
+  width: 0;
+  height: 0;
+  transform: translate(0, 0) scale(1);
+  transform-origin: center;
+  will-change: transform;
+}
+
+.layout__diagram-canvas {
+  position: absolute;
+  transform: translate(-50%, -50%);
 }
 
 .structurizrDiagramViewport {
-  background: #fff;
-  height: 100% !important;
-  width: 100% !important;
+  width: 100vw;
+  /*height: 100% !important;
+  width: 100% !important;*/
+}
+
+.structurizrDiagramCanvas {
+  background: red;
 }
 
 label {
