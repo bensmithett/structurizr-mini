@@ -7,8 +7,16 @@
   box-sizing: inherit;
 }
 
-body {
+html, body {
+  height: 100%;
   margin: 0;
+}
+
+.layout {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
 }
 
 .layout__nav {
@@ -17,13 +25,22 @@ body {
   align-items: center;
   justify-content: center;
   gap: 5px;
-  height: 50px;
+  /* height: 50px; */
   padding: 5px;
+  position: relative;
+  z-index: 2;
 }
 
-.layout__diagram {
-  height: calc(100vh - 50px);
-  width: 100vw;
+.layout__diagram-root {
+  flex: 1 1;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+}
+
+.layout__structurizr-target {
+  height: 100%;
+  width: 100%;
 }
 
 .structurizrDiagramViewport {

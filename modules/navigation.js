@@ -1,5 +1,5 @@
-// import history from './history.js'
 import history from 'history/browser'
+import panzoom from 'panzoom'
 
 export class Navigation {
   #diagram
@@ -39,8 +39,6 @@ export class Navigation {
     const search = new URLSearchParams(location.search)
     const key = getKeyFromURL(location)
 
-    console.log(this, this.#diagram, this.#diagram.getCurrentView())
-
     if (key && key !== this.#diagram.getCurrentView().key) {
       this.setDiagram(key)
     }
@@ -70,37 +68,22 @@ export class Navigation {
   }
 
   setDiagram(key) {
-    if (this.#zoom) this.#zoom.dispose()
+    this.#diagram.changeView(key, () => {
+      if (this.#zoom) {
+        this.#zoom.dispose()
+        document.querySelector('#structurizr-diagram-target svg').style.removeProperty('transform')
+      }
 
-    this.#diagram.changeView(key)
-    this.#zoom = panzoom(document.querySelector('#v-2'), {
-      minZoom: 0.3,
-      smoothScroll: false,
-      bounds: true,
-      boundsPadding: 0.5,
-      // We're using double clicks to navigate, not zoom
-      zoomDoubleClickSpeed: 1,
-      /*
-      beforeWheel: function(e) {
-        // allow wheel-zoom only if altKey is down. Otherwise - ignore
-        var shouldIgnore = !e.altKey;
-        return shouldIgnore;
-      },*/
-      /*
-      beforeMouseDown: function(e) {
-        // allow mouse-down panning only if altKey is down. Otherwise - ignore
-        var shouldIgnore = !e.altKey;
-        return shouldIgnore;
-      }*/
-      
+      this.#zoom = panzoom(document.querySelector('#structurizr-diagram-target svg'), {
+        minZoom: 0.3,
+        smoothScroll: false,
+        bounds: true,
+        // We're using double clicks to navigate, not zoom
+        zoomDoubleClickSpeed: 1,
+      })
+
     })
   }
-
-  // resetZoom () {
-  //   if (this.#zoom) {
-  //     this.#zoom.zoomTo(0, 0, 1)
-  //   }
-  // }
 }
 
 function setURLForDiagram (key) {
