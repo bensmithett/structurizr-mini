@@ -16,20 +16,9 @@
         <label for='searchbox'>Diagrams:</label>
         <input id="searchbox" class='input' />
         <button id='export' class='btn'>Export PNG</button>
-
-        <!--
-        <div class='zoom'>
-          <button id='zoomIn'>+</button>
-          <button id='zoomOut'>-</button>
-        </div>
-        -->
       </div>
       <div class='layout__diagram-root' id='zoom-root'>
-        <div class='layout__diagram-point'>
-          <div class='layout__diagram-canvas'>
-            <div class="layout__structurizr-target" id="structurizr-diagram-target"></div>
-          </div>
-        </div>
+        <div class="layout__structurizr-target" id="structurizr-diagram-target"></div>
       </div>
     </div>
 
@@ -68,8 +57,6 @@
     <script src='git_submodules/structurizr/ui/src/js/structurizr-ui.js'></script>
     <script src='git_submodules/structurizr/ui/src/js/structurizr-workspace.js'></script>
     <script src='git_submodules/structurizr/ui/src/js/structurizr-diagram.js'></script>
-
-    <script src='https://unpkg.com/panzoom@9.4.0/dist/panzoom.min.js'></script>
 
     <script type='module' src='modules/index.js'></script>
   </body>

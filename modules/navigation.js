@@ -1,6 +1,5 @@
-// import history from './history.js'
 import history from 'history/browser'
-import { create as createZoom } from 'pinch-zoom-pan'
+import panzoom from 'panzoom'
 
 export class Navigation {
   #diagram
@@ -40,8 +39,6 @@ export class Navigation {
     const search = new URLSearchParams(location.search)
     const key = getKeyFromURL(location)
 
-    console.log(this, this.#diagram, this.#diagram.getCurrentView())
-
     if (key && key !== this.#diagram.getCurrentView().key) {
       this.setDiagram(key)
     }
@@ -71,37 +68,22 @@ export class Navigation {
   }
 
   setDiagram(key) {
-    // if (this.#zoom) this.#zoom.dispose()
-    if (this.#zoom) this.#zoom.destroy()
-
     this.#diagram.changeView(key, () => {
-      this.#diagram.autoPageSize()
-      this.#zoom = createZoom({
-        element: document.querySelector('#zoom-root'),
-        // optional settings:
-        minZoom: 0.5,
-        maxZoom: 10,
-        captureWheel: true,
+      if (this.#zoom) {
+        this.#zoom.dispose()
+        document.querySelector('#structurizr-diagram-target svg').style.removeProperty('transform')
+      }
+
+      this.#zoom = panzoom(document.querySelector('#structurizr-diagram-target svg'), {
+        minZoom: 0.3,
+        smoothScroll: false,
+        bounds: true,
+        // We're using double clicks to navigate, not zoom
+        zoomDoubleClickSpeed: 1,
       })
-    })
 
-    /*
-    this.#zoom = panzoom(document.querySelector('#v-2'), {
-      minZoom: 0.3,
-      smoothScroll: false,
-      bounds: true,
-      boundsPadding: 0.5,
-      // We're using double clicks to navigate, not zoom
-      zoomDoubleClickSpeed: 1,
     })
-    */
   }
-
-  // resetZoom () {
-  //   if (this.#zoom) {
-  //     this.#zoom.zoomTo(0, 0, 1)
-  //   }
-  // }
 }
 
 function setURLForDiagram (key) {

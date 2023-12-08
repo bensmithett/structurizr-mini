@@ -35,34 +35,18 @@ html, body {
   flex: 1 1;
   overflow: hidden;
   position: relative;
-/*  transform: translateZ(0);*/
   z-index: 1;
-  /*height: calc(100vh - 50px);
-  width: 100vw;*/
 }
 
-.layout__diagram-point {
-  position: absolute;
-  width: 0;
-  height: 0;
-  transform: translate(0, 0) scale(1);
-  transform-origin: center;
-  will-change: transform;
-}
-
-.layout__diagram-canvas {
-  position: absolute;
-  transform: translate(-50%, -50%);
+.layout__structurizr-target {
+  height: 100%;
+  width: 100%;
 }
 
 .structurizrDiagramViewport {
-  width: 100vw;
-  /*height: 100% !important;
-  width: 100% !important;*/
-}
-
-.structurizrDiagramCanvas {
-  background: red;
+  background: #fff;
+  height: 100% !important;
+  width: 100% !important;
 }
 
 label {
