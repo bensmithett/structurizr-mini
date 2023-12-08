@@ -1,6 +1,6 @@
 <img src='./docs/banner.webp' width='512' alt='Structurizr Mini' />
 
-A static site for C4 diagrams from a [Structurizr](https://structurizr.com) workspace. Just the diagrams — [docs](https://docs.structurizr.com/dsl/docs) and [ADRs](https://docs.structurizr.com/dsl/adrs) in the workspace are ignored.
+A static site for C4 diagrams from a [Structurizr](https://structurizr.com) workspace.
 
 ## Features
 
@@ -8,7 +8,8 @@ A static site for C4 diagrams from a [Structurizr](https://structurizr.com) work
 - Zoom and pan with mousewheel or trackpad (like Google Maps, Lucidchart, Miro, etc).
 - Simplified UI with [quick navigation](https://docs.structurizr.com/ui/quick-navigation) and [fuzzy search](https://github.com/farzher/fuzzysort)
 - PNG export
-- Customisable nav — link to your own supplemental docs, source code, etc
+- Just the diagrams — [docs](https://docs.structurizr.com/dsl/docs) and [ADRs](https://docs.structurizr.com/dsl/adrs) in the workspace are ignored.
+- Customisable nav — link to your own supplemental docs, ADRs, source code, etc
 
 ## Instructions
 
