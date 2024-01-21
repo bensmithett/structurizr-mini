@@ -4,8 +4,11 @@ import { PNGExporter } from './PNGExporter.js'
 import { WindowResizeHandler } from './WindowResizeHandler.js'
 
 async function setup(structurizr) {
+  // Used for development
   // const response = await fetch('https://raw.githubusercontent.com/structurizr/ui/main/examples/big-bank-plc.json')
-  const response = await fetch('/example/workspace.json')
+  // const response = await fetch('/example/workspace.json')
+
+  const response = await fetch('workspace.json')
   const data = await response.json()
 
   structurizr.workspace = new structurizr.Workspace(data)
