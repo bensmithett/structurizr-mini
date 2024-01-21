@@ -56,7 +56,8 @@ export class Router {
       view.softwareSystemId !== element.id
     ) {
       views = structurizr.workspace.findSystemContextViewsForSoftwareSystem(element.id)
-      if (!views.length) views = structurizr.workspace.findContainerViewsForSoftwareSystem(element.id)
+      if (!views.length)
+        views = structurizr.workspace.findContainerViewsForSoftwareSystem(element.id)
     } else if (view.type === structurizr.constants.SYSTEM_CONTEXT_VIEW_TYPE) {
       views = structurizr.workspace.findContainerViewsForSoftwareSystem(element.id)
     }
@@ -81,19 +82,17 @@ export class Router {
       svg.style.removeProperty('transform')
     }
 
-    svg.style.setProperty('padding', svg.parentElement.style.getPropertyValue('margin'))
-
     this.#zoom = panzoom(svg, {
       minZoom: 0.3,
       smoothScroll: false,
       bounds: true,
       // We're using double clicks to navigate, not zoom
-      zoomDoubleClickSpeed: 1,
+      zoomDoubleClickSpeed: 1
     })
   }
 }
 
-export function setURLForDiagram (key) {
+export function setURLForDiagram(key) {
   const search = new URLSearchParams(history.location.search)
   search.set('diagram', key)
   history.push({ search: search.toString() })

@@ -4,7 +4,7 @@ import fuzzysort from 'fuzzysort'
 import { setURLForDiagram } from './Router.js'
 
 export class QuickNav {
-  constructor () {
+  constructor() {
     const structurizrViews = sortStructurizrViews()
     const input = document.querySelector('#searchbox')
 
@@ -13,7 +13,9 @@ export class QuickNav {
       emptyMsg: 'No matches',
       fetch: function (text, update) {
         if (text) {
-          update(fuzzysort.go(text, structurizrViews, { key: 'key' }).map(({ obj }) => obj))
+          update(
+            fuzzysort.go(text, structurizrViews, { keys: ['key', 'title'] }).map(({ obj }) => obj)
+          )
         } else {
           update(structurizrViews)
         }
@@ -24,14 +26,24 @@ export class QuickNav {
         input.blur()
         input.value = ''
       },
-      render: function ({ key, description }) {
+      render: function ({ key, title, description }) {
         const result = document.createElement('div')
         result.className = 'autocomplete-option'
-        result.innerHTML = `${key}<br /><small>${description}</small>`
+        result.innerHTML = `${title ? title : key}${description ? `<br /><small>${description}</small>` : ''}`
         return result
       },
       minLength: 0,
-      click: e => e.fetch()
+      showOnFocus: true,
+      click: (e) => e.fetch()
+    })
+
+    // open with space
+    document.body.addEventListener('keyup', (e) => {
+      if (e.key === ' ' || e.code === 'Space' || e.keyCode === 32) {
+        if (document.activeElement !== input) {
+          input.focus()
+        }
+      }
     })
   }
 }
