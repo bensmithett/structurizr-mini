@@ -27,11 +27,11 @@ export class Router {
         this.navigateToSoftwareSystem(element)
         break
       case structurizr.constants.CONTAINER_ELEMENT_TYPE:
-        this.navigateToContainer(element)
+        this.navigateToContainer(element.id)
         break
-      default:
-        // TODO: Probably should go down to component & code for completeness
-        alert(`Unhandled element type: ${element.type}`)
+      case structurizr.constants.CONTAINER_INSTANCE_ELEMENT_TYPE:
+        this.navigateToContainer(element.containerId)
+        break
     }
   }
 
@@ -63,8 +63,8 @@ export class Router {
     if (views.length) setURLForDiagram(views[0].key)
   }
 
-  navigateToContainer(element, diagram) {
-    const views = structurizr.workspace.findComponentViewsForContainer(element.id)
+  navigateToContainer(id) {
+    const views = structurizr.workspace.findComponentViewsForContainer(id)
     if (views.length) setURLForDiagram(views[0].key)
   }
 
