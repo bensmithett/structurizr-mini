@@ -44,9 +44,18 @@ html, body {
 }
 
 .structurizrDiagramViewport {
-  background: #fff;
   height: 100% !important;
   width: 100% !important;
+}
+
+#structurizr-diagram-target-canvas {
+  height: 100% !important;
+  width: 100% !important;
+  margin: 0 !important; /* Navigation#setDiagram reads this and repurposes as padding on the SVG */
+}
+
+.structurizrDiagramViewport svg {
+  box-sizing: content-box; /* So the padding hack in Navigation#setDiagram works */
 }
 
 label {

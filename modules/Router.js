@@ -1,7 +1,7 @@
 import history from 'history/browser'
 import panzoom from 'panzoom'
 
-export class Navigation {
+export class Router {
   #diagram
   #zoom
 
@@ -21,6 +21,8 @@ export class Navigation {
 
   handleElementDoubleClick = (event, elementId) => {
     const element = structurizr.workspace.findElementById(elementId)
+
+    console.log(element.type)
 
     switch (element.type) {
       case structurizr.constants.SOFTWARE_SYSTEM_ELEMENT_TYPE:
@@ -67,26 +69,31 @@ export class Navigation {
     if (views.length) setURLForDiagram(views[0].key)
   }
 
-  setDiagram(key) {
-    this.#diagram.changeView(key, () => {
-      if (this.#zoom) {
-        this.#zoom.dispose()
-        document.querySelector('#structurizr-diagram-target svg').style.removeProperty('transform')
-      }
+  setDiagram = (key) => {
+    this.#diagram.changeView(key, this.resetZoom)
+  }
 
-      this.#zoom = panzoom(document.querySelector('#structurizr-diagram-target svg'), {
-        minZoom: 0.3,
-        smoothScroll: false,
-        bounds: true,
-        // We're using double clicks to navigate, not zoom
-        zoomDoubleClickSpeed: 1,
-      })
+  resetZoom = () => {
+    const svg = document.querySelector('#structurizr-diagram-target svg')
 
+    if (this.#zoom) {
+      this.#zoom.dispose()
+      svg.style.removeProperty('transform')
+    }
+
+    svg.style.setProperty('padding', svg.parentElement.style.getPropertyValue('margin'))
+
+    this.#zoom = panzoom(svg, {
+      minZoom: 0.3,
+      smoothScroll: false,
+      bounds: true,
+      // We're using double clicks to navigate, not zoom
+      zoomDoubleClickSpeed: 1,
     })
   }
 }
 
-function setURLForDiagram (key) {
+export function setURLForDiagram (key) {
   const search = new URLSearchParams(history.location.search)
   search.set('diagram', key)
   history.push({ search: search.toString() })
