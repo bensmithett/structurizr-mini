@@ -21,7 +21,6 @@ export class QuickNav {
         }
       },
       onSelect: function ({ key }) {
-        console.log(key)
         setURLForDiagram(key)
         input.blur()
         input.value = ''

@@ -22,8 +22,6 @@ export class Router {
   handleElementDoubleClick = (event, elementId) => {
     const element = structurizr.workspace.findElementById(elementId)
 
-    console.log(element.type)
-
     switch (element.type) {
       case structurizr.constants.SOFTWARE_SYSTEM_ELEMENT_TYPE:
         this.navigateToSoftwareSystem(element)
