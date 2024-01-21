@@ -1,6 +1,6 @@
 <img src='./docs/banner.webp' width='512' alt='Structurizr Mini' />
 
-A static site for C4 diagrams from a [Structurizr](https://structurizr.com) workspace.
+A static site for C4 diagrams from a [Structurizr](https://structurizr.com) workspace. 👉 [Demo](https://bensmithett.github.io/structurizr-mini/) 👈
 
 ## Features
 
