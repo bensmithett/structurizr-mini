@@ -27,7 +27,7 @@ async function setup(structurizr) {
     })
   })
 
-  const navResponse = await fetch('/nav.json')
+  const navResponse = await fetch('nav.json')
   const nav = await navResponse.json()
 
   document.querySelector('.nav-links').innerHTML = nav.links

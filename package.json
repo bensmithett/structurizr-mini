@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "import-structurizr-scripts": "mkdir -p public && uglifyjs `< structurizr_ui_scripts.txt` --output public/structurizr_ui_scripts.js",
+    "import-structurizr-styles": "mkdir -p public && uglifycss `< structurizr_ui_styles.txt` --output public/structurizr_ui_styles.css",
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview"
@@ -19,6 +20,7 @@
     "history": "^5.3.0",
     "just-sort-by": "^3.2.0",
     "uglify-js": "^3.17.4",
+    "uglifycss": "^0.0.29",
     "vite": "^4.3.0"
   },
   "dependencies": {

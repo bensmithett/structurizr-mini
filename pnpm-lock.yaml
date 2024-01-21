@@ -28,6 +28,9 @@ devDependencies:
   uglify-js:
     specifier: ^3.17.4
     version: 3.17.4
+  uglifycss:
+    specifier: ^0.0.29
+    version: 0.0.29
   vite:
     specifier: ^4.3.0
     version: 4.3.0
@@ -366,6 +369,12 @@ packages:
   /uglify-js@3.17.4:
     resolution: {integrity: sha512-T9q82TJI9e/C1TAxYvfb16xO120tMVFZrGA3f9/P4424DNu6ypK103y0GPFVa17yotwSyZW5iYXgjYHkGrJW/g==}
     engines: {node: '>=0.8.0'}
+    hasBin: true
+    dev: true
+
+  /uglifycss@0.0.29:
+    resolution: {integrity: sha512-J2SQ2QLjiknNGbNdScaNZsXgmMGI0kYNrXaDlr4obnPW9ni1jljb1NeEVWAiTgZ8z+EBWP2ozfT9vpy03rjlMQ==}
+    engines: {node: '>=6.4.0'}
     hasBin: true
     dev: true
 

@@ -1,0 +1,2 @@
+git_submodules/structurizr/ui/src/css/joint-3.6.5.css
+git_submodules/structurizr/ui/src/css/structurizr-diagram.css
