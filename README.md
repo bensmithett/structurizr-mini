@@ -27,7 +27,8 @@ Use Structurizr CLI's [`pull`](https://docs.structurizr.com/cli/pull) to export 
 ## Structurizr Mini workflow
 
 1. Author a `workspace.dsl` locally, using [Structurizr Lite](https://structurizr.com/help/lite) or the [web DSL Editor](https://structurizr.com/dsl) to preview the resulting diagrams.
-2. Publish diagrams to a static Structurizr Mini site (e.g. as part of a CI build)
+2. Generate a `workspace.json` based on your `workspace.dsl`
+3. Publish diagrams to a static Structurizr Mini site (e.g. as part of a CI build)
 
 ⚠️ Note: while the Structurizr CLI can [export](https://docs.structurizr.com/cli/export) your local `workspace.dsl` to JSON, **it will not include any diagram layout info.** The following steps explain how to get a `workspace.json` that includes diagram layout info.
 
