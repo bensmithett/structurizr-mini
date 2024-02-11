@@ -22,7 +22,7 @@ export class Router {
   handleElementDoubleClick = (event, elementId) => {
     const element = structurizr.workspace.findElementById(elementId)
     
-    if(element.url) window.open(element.url, '_blank');
+    if (element.url) window.open(element.url, '_blank')
 
     switch (element.type) {
       case structurizr.constants.SOFTWARE_SYSTEM_ELEMENT_TYPE:
