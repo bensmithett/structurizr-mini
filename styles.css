@@ -37,6 +37,7 @@ html, body {
 
 .nav-links > a {
   color: #438dd5;
+  margin-left: 10px;
 }
 
 .layout__diagram {
