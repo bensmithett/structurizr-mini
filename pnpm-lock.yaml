@@ -10,9 +10,6 @@ dependencies:
     version: 9.4.3
 
 devDependencies:
-  a11y-dialog:
-    specifier: ^7.5.2
-    version: 7.5.2
   autocompleter:
     specifier: ^8.0.3
     version: 8.0.3
@@ -242,12 +239,6 @@ packages:
     dev: true
     optional: true
 
-  /a11y-dialog@7.5.2:
-    resolution: {integrity: sha512-zfWtVvrbGbP3AFnEJ1aJFtu7GvedgjOEKbkyEUSeaNWDzmFJk9O5nuolDQrRDyRDE5fqSJRiBJtD5bUYKveoUg==}
-    dependencies:
-      focusable-selectors: 0.4.0
-    dev: true
-
   /amator@1.1.0:
     resolution: {integrity: sha512-V5+aH8pe+Z3u/UG3L3pG3BaFQGXAyXHVQDroRwjPHdh08bcUEchAVsU1MCuJSCaU5o60wTK6KaE6te5memzgYw==}
     dependencies:
@@ -290,10 +281,6 @@ packages:
       '@esbuild/win32-arm64': 0.17.17
       '@esbuild/win32-ia32': 0.17.17
       '@esbuild/win32-x64': 0.17.17
-    dev: true
-
-  /focusable-selectors@0.4.0:
-    resolution: {integrity: sha512-tc/236hUU3xemsRLu1RKhRQ5UWHjRM9iJTli1zdac43h7b1biRSgG0mILM0qrcsKaGCHcOPJ6NKbk12ouKHLpw==}
     dev: true
 
   /fsevents@2.3.2:
