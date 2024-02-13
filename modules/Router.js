@@ -1,6 +1,5 @@
 import history from 'history/browser'
 import Panzoom from '@panzoom/panzoom'
-import throttle from 'just-throttle'
 
 export class Router {
   #diagram
@@ -81,15 +80,15 @@ export class Router {
     const el = document.querySelector('#structurizr-diagram-target-canvas')
     this.#panzoom = Panzoom(el, { canvas: true })
 
-    const handleWheel = throttle((event) => {
-      this.#panzoom.zoomWithWheel(event, {
-        // Mousewheel scrolls and trackpad scrolls result in wildly different zoom speeds
-        // https://github.com/w3c/uievents/issues/337
-        // so set a step value that feels more OK for each.
-        // I've only tested on my Macbook. Please open an issue if your zooms feel super fast or slow.
-        step: isTrackPad(event) ? 0.1 : 0.3
-      })
-    }, 10, { leading: true })
+    const handleWheel = (event) => {
+      // Mousewheel scrolls and trackpad scrolls result in wildly different zoom speeds
+      // if using panzoom's default zoomWithWheel
+      // https://github.com/timmywil/panzoom/issues/586
+      const delta = event.deltaY === 0 && event.deltaX ? event.deltaX : event.deltaY
+      const scale = this.#panzoom.getScale();
+      const toScale = scale * Math.exp((delta * 0.3 * -1) / 300);
+      const result = this.#panzoom.zoomToPoint(toScale, event);
+    }
 
     el.parentElement.addEventListener('wheel', handleWheel)
   }
@@ -104,18 +103,4 @@ export function setURLForDiagram(key) {
 function getKeyFromURL(location) {
   const search = new URLSearchParams(location.search)
   return search.get('diagram')
-}
-
-// https://stackoverflow.com/a/62415754
-// There's no way it can be this simple, right?
-function isTrackPad(event) {
-  if (event.wheelDeltaY) {
-    if (event.wheelDeltaY === (event.deltaY * -3)) {
-      return true
-    }
-  } else if (event.deltaMode === 0) {
-    return true
-  } else {
-    return false
-  }
 }

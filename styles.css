@@ -50,6 +50,7 @@ html, body {
 
 .structurizrDiagramViewport {
   background: #fff;
+  overflow: hidden !important; /* Override the `hidden scroll` coming from Structurizr that causes scrollbars on zoom in Chrome */
 }
 
 .structurizrDiagramCanvas {
