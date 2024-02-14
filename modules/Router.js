@@ -1,9 +1,9 @@
 import history from 'history/browser'
-import panzoom from 'panzoom'
+import Panzoom from '@panzoom/panzoom'
 
 export class Router {
   #diagram
-  #zoom
+  #panzoom
 
   constructor(diagram) {
     this.#diagram = diagram
@@ -75,20 +75,22 @@ export class Router {
   }
 
   resetZoom = () => {
-    const svg = document.querySelector('#structurizr-diagram-target svg')
+    if (this.#panzoom) this.#panzoom.destroy()
 
-    if (this.#zoom) {
-      this.#zoom.dispose()
-      svg.style.removeProperty('transform')
+    const el = document.querySelector('#structurizr-diagram-target-canvas')
+    this.#panzoom = Panzoom(el, { canvas: true })
+
+    const handleWheel = (event) => {
+      // Mousewheel scrolls and trackpad scrolls result in wildly different zoom speeds
+      // if using panzoom's default zoomWithWheel
+      // https://github.com/timmywil/panzoom/issues/586
+      const delta = event.deltaY === 0 && event.deltaX ? event.deltaX : event.deltaY
+      const scale = this.#panzoom.getScale();
+      const toScale = scale * Math.exp((delta * 0.3 * -1) / 300);
+      const result = this.#panzoom.zoomToPoint(toScale, event);
     }
 
-    this.#zoom = panzoom(svg, {
-      minZoom: 0.3,
-      smoothScroll: false,
-      bounds: true,
-      // We're using double clicks to navigate, not zoom
-      zoomDoubleClickSpeed: 1
-    })
+    el.parentElement.addEventListener('wheel', handleWheel)
   }
 }
 

@@ -10,6 +10,7 @@
 html, body {
   height: 100%;
   margin: 0;
+  overflow: hidden; /* Disable elastic scroll on macOS so it doesn't interfere with 2-finger trackpad zooming */
 }
 
 .layout {
@@ -49,6 +50,7 @@ html, body {
 
 .structurizrDiagramViewport {
   background: #fff;
+  overflow: hidden !important; /* Override the `hidden scroll` coming from Structurizr that causes scrollbars on zoom in Chrome */
 }
 
 .structurizrDiagramCanvas {
