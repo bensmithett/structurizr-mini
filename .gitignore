@@ -1,4 +1,5 @@
 .DS_Store
 example/workspace.json
 node_modules
-dist
+/build
+/dist
