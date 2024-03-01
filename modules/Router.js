@@ -21,7 +21,7 @@ export class Router {
 
   handleElementDoubleClick = (event, elementId) => {
     const element = structurizr.workspace.findElementById(elementId)
-    
+
     if (element.url) window.open(element.url, '_blank')
 
     switch (element.type) {
@@ -85,9 +85,9 @@ export class Router {
       // if using panzoom's default zoomWithWheel
       // https://github.com/timmywil/panzoom/issues/586
       const delta = event.deltaY === 0 && event.deltaX ? event.deltaX : event.deltaY
-      const scale = this.#panzoom.getScale();
-      const toScale = scale * Math.exp((delta * 0.3 * -1) / 300);
-      const result = this.#panzoom.zoomToPoint(toScale, event);
+      const scale = this.#panzoom.getScale()
+      const toScale = scale * Math.exp((delta * 0.3 * -1) / 300)
+      const result = this.#panzoom.zoomToPoint(toScale, event)
     }
 
     el.parentElement.addEventListener('wheel', handleWheel)
