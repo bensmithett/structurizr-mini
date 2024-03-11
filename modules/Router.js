@@ -104,3 +104,8 @@ function getKeyFromURL(location) {
   const search = new URLSearchParams(location.search)
   return search.get('diagram')
 }
+
+export function isEmbedded() {
+  const search = new URLSearchParams(history.location.search)
+  return search.get('embed') === 'true'
+}

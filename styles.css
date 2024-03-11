@@ -20,6 +20,49 @@ html, body {
   position: relative;
 }
 
+.layout__loading {
+  flex: 1 1;
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.loader {
+  width: 48px;
+  height: 48px;
+  display: inline-block;
+  position: relative;
+}
+.loader::after,
+.loader::before {
+  content: '';  
+  box-sizing: border-box;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 2px solid #000;
+  position: absolute;
+  left: 0;
+  top: 0;
+  animation: animloader 2s linear infinite;
+}
+.loader::after {
+  animation-delay: 1s;
+}
+
+@keyframes animloader {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
 .layout__nav {
   background: #333;
   display: flex;
@@ -90,4 +133,8 @@ label {
   cursor: pointer;
   font-size: 1rem;
   padding: 5px;
+}
+
+.is-hidden {
+  display: none;
 }

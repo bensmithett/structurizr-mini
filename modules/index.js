@@ -1,19 +1,21 @@
-import { Router } from './Router.js'
+import { Router, isEmbedded } from './Router.js'
 import { QuickNav } from './QuickNav.js'
 import { PNGExporter } from './PNGExporter.js'
 import { WindowResizeHandler } from './WindowResizeHandler.js'
+import { Dom } from './Dom.js'
 
 async function setup(structurizr) {
-  // Used for development
-  // const response = await fetch('https://raw.githubusercontent.com/structurizr/ui/main/examples/big-bank-plc.json')
-  // const response = await fetch('/example/workspace.json')
+  const dom = new Dom()
 
-  const response = await fetch('workspace.json')
-  const data = await response.json()
+  const data = await fetchWorkspace()
+  const nav = await fetchNavConfig()
 
   structurizr.workspace = new structurizr.Workspace(data)
 
   structurizr.ui.loadThemes(() => {
+    dom.insertNavLinks(nav.links)
+    dom.removeLoading(isEmbedded())
+
     const diagram = new structurizr.ui.Diagram('structurizr-diagram-target', false, () => {
       diagram.setNavigationEnabled(true)
 
@@ -26,13 +28,19 @@ async function setup(structurizr) {
       new WindowResizeHandler(diagram)
     })
   })
+}
 
+async function fetchWorkspace() {
+  // Used for development
+  // const response = await fetch('https://raw.githubusercontent.com/structurizr/ui/main/examples/big-bank-plc.json')
+  // const response = await fetch('/example/workspace.json')
+  const response = await fetch('workspace.json')
+  return await response.json()
+}
+
+async function fetchNavConfig() {
   const navResponse = await fetch('nav.json')
-  const nav = await navResponse.json()
-
-  document.querySelector('.nav-links').innerHTML = nav.links
-    .map(({ text, href }) => `<a href='${href}' target='_blank'>${text}</a>`)
-    .join('')
+  return await navResponse.json()
 }
 
 setup(window.structurizr)
