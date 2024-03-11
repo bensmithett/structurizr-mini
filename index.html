@@ -7,19 +7,24 @@
     <link rel='stylesheet' href='./structurizr_ui_styles.css' />
     
     
-    <script type="module" crossorigin src="./assets/index-79edbb0c.js"></script>
-    <link rel="stylesheet" href="./assets/index-cd4f60bf.css">
+    <script type="module" crossorigin src="./assets/index-3ac3eaef.js"></script>
+    <link rel="stylesheet" href="./assets/index-a7807abb.css">
   </head>
   <body>
     <div class='layout'>
-      <div class='layout__nav'>
+      <div class='layout__loading'>
+        <span class="loader"></span>
+        Loading...
+      </div>
+
+      <div class='layout__nav is-hidden'>
         <input id="searchbox" class='input' aria-label='Diagram navigation' placeholder='Start typing…' />
         <button id='export' class='btn'>Export PNG</button>
 
         <div class='nav-links'></div>
       </div>
 
-      <div class='layout__diagram' id="structurizr-diagram-target"></div>
+      <div class='layout__diagram is-hidden' id="structurizr-diagram-target"></div>
     </div>
 
     <script src='./structurizr_ui_scripts.js'></script>
