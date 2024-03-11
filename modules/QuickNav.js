@@ -1,7 +1,7 @@
 import sortBy from 'just-sort-by'
 import autocomplete from 'autocompleter'
 import fuzzysort from 'fuzzysort'
-import { setURLForDiagram } from './Router.js'
+import { setURLForDiagram, isEmbedded } from './Router.js'
 
 export class QuickNav {
   constructor() {
@@ -38,9 +38,11 @@ export class QuickNav {
 
     // open with space
     document.body.addEventListener('keyup', (e) => {
-      if (e.key === ' ' || e.code === 'Space' || e.keyCode === 32) {
-        if (document.activeElement !== input) {
-          input.focus()
+      if (!isEmbedded()) {
+        if (e.key === ' ' || e.code === 'Space' || e.keyCode === 32) {
+          if (document.activeElement !== input) {
+            input.focus()
+          }
         }
       }
     })
