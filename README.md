@@ -55,7 +55,7 @@ As a static site without a server runtime, Mini can't do that. Luckily there's a
 ```
 workspace extends workspace.json {
   !script groovy {
-    new com.structurizr.graphviz.GraphvizAutomaticLayout().apply(workspace);
+    new com.structurizr.autolayout.graphviz.GraphvizAutomaticLayout().apply(workspace);
   }
 }
 ```
