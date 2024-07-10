@@ -34,6 +34,9 @@ export class Router {
       case structurizr.constants.CONTAINER_INSTANCE_ELEMENT_TYPE:
         this.navigateToContainer(element.containerId)
         break
+      case structurizr.constants.CUSTOM_ELEMENT_TYPE:
+        this.navigateToImage(element.id)
+        break
     }
   }
 
@@ -67,6 +70,11 @@ export class Router {
 
   navigateToContainer(id) {
     const views = structurizr.workspace.findComponentViewsForContainer(id)
+    if (views.length) setURLForDiagram(views[0].key)
+  }
+
+  navigateToImage(id) {
+    const views = structurizr.workspace.findImageViewsForElement(id)
     if (views.length) setURLForDiagram(views[0].key)
   }
 
